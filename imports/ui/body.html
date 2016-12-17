@@ -2,6 +2,7 @@
   <div class="container">
     <header>
       <h1>Problem Tracker {{incompleteCount}}</h1>
+      {{> loginButtons}}
     </header>
 
     <label class="hide-completed">
@@ -9,9 +10,12 @@
       Hide Completed Tasks
     </label>
 
+
+    {{#if currentUser}}
     <form class="new-task">
       <input type="text" name="text" placeholder="Type to add new tasks" />
     </form>
+    {{/if}}
 
     <ul>
       {{#each tasks}}
