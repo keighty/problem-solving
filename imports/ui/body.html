@@ -1,8 +1,13 @@
 <body>
   <div class="container">
     <header>
-      <h1>Problem Tracker</h1>
+      <h1>Problem Tracker {{incompleteCount}}</h1>
     </header>
+
+    <label class="hide-completed">
+      <input type="checkbox" />
+      Hide Completed Tasks
+    </label>
 
     <form class="new-task">
       <input type="text" name="text" placeholder="Type to add new tasks" />
@@ -15,8 +20,3 @@
     </ul>
   </div>
 </body>
-
-
-<template name="task">
-  <li>{{text}}</li>
-</template>
