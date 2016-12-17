@@ -6,6 +6,7 @@ import './body.html'
 
 Template.body.onCreated(function bodyOnCreated () {
   this.state = new ReactiveDict()
+  Meteor.subscribe('tasks')
 })
 
 Template.body.helpers({
@@ -26,14 +27,7 @@ Template.body.events({
     e.preventDefault()
     const target = e.target
     const text = target.text.value
-
-    Tasks.insert({
-      text,
-      createdAt: new Date(),
-      owner: Meteor.userId(),
-      username: Meteor.user().username,
-    })
-
+    Meteor.call('tasks.insert', text)
     target.text.value = ''
   },
   'change .hide-completed input'(e, instance) {
