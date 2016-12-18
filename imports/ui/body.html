@@ -3,13 +3,24 @@
     <header>
       <h1>Problem Tracker {{incompleteCount}}</h1>
       {{> loginButtons}}
+      <select class="form-control"  id="problem-list">
+        <option>Please Select</option>
+        {{#each problems}}
+          {{> problem}}
+        {{/each}}
+      </select>
+
+      {{#if currentUser}}
+      <form class="new-problem">
+        <input type="text" name="text" placeholder="Type to add new problem" />
+      </form>
+      {{/if}}
     </header>
 
     <label class="hide-completed">
       <input type="checkbox" />
       Hide Completed Tasks
     </label>
-
 
     {{#if currentUser}}
     <form class="new-task">
@@ -22,5 +33,6 @@
         {{> task}}
       {{/each}}
     </ul>
+
   </div>
 </body>

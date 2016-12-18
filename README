@@ -1,3 +1,21 @@
 ### run tests
 
 `meteor test --driver-package practicalmeteor:mocha --port 3030`
+
+### buildpack
+
+When deploying a meteor app to heroku for the first time, use this buildpack
+
+```
+$ heroku buildpacks:set https://github.com/AdmitHub/meteor-buildpack-horse.git
+```
+
+### TODO
+1. Make multiple lists possible (dropdown selection of all possible lists)
+2. Make multiple categories possible (problem, solution, idea, question, link)
+3. rank list additions by progression
+4. make multiple branches possible
+5. make list check-off possible (archive)
+6. export to timeline (for blog post)
+7. add screenshots to items?
+8. allow items to be collapsable

@@ -1,0 +1,19 @@
+<!-- <template name="problem">
+  <li class="{{#if checked}}checked{{/if}}">
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <span class="text"><strong>{{username}}</strong> - {{text}}</span>
+    <select class="form-control"  id="problem-list">
+        <option>Please Select</option>
+        {{#each problems}}
+            <option value="{{this.title}}" {{isSelected this.option}}>{{this.title}}</option>
+        {{/each}}
+    </select>
+  </li>
+</template> -->
+
+<template name="problems">
+</template>
+
+<template name="problem">
+  <option value="{{this.title}}">{{this.title}}</option>
+</template>
