@@ -21,10 +21,13 @@ Template.navigation.events({
     target.text.value = ''
     instance.state.set('showAddProblemInput', false)
   },
+  'keydown .new-problem'(e, instance) {
+    if (e.keyCode !== 27) return
+    instance.state.set('showAddProblemInput', false)
+  },
   'click .add-problem'(e, instance) {
-    console.log('hello')
     e.preventDefault()
     const showInput = instance.state.get('showAddProblemInput')
-    instance.state.set('showAddProblemInput', !showInput)
+    instance.state.set('showAddProblemInput', true)
   }
 })
