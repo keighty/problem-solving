@@ -14,26 +14,26 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          {{#if currentUser}}
-          <li><a href="#">Solved problems</a></li>
-          {{/if}}
-        </ul>
+        {{#if currentUser}}
+          <ul class="nav navbar-nav">
+            <li><a href="#">Solved problems</a></li>
+          </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-          {{#if showAddProblemInput }}
-          <form class="navbar-form navbar-left new-problem">
-            <div class="form-group">
-              <input type="text" class="form-control" name="text" placeholder="New problem" />
-            </div>
-          </form>
-          {{elsif currentUser}}
-          <li><a href="#" title="Add problem" class="add-problem"><span class="glyphicon glyphicon-plus"></span></a></li>
-          <li><a href="#"><span class="badge" title="unsolved problems">{{incompleteCount}}</span></a></li>
-          {{/if}}
+          <ul class="nav navbar-nav navbar-right">
+            {{#if showAddProblemInput }}
+            <form class="navbar-form navbar-left new-problem">
+              <div class="form-group">
+                <input type="text" class="form-control" name="text" placeholder="New problem" />
+              </div>
+            </form>
+            {{else}}
+            <li><a href="#" title="Add problem" class="add-problem"><span class="glyphicon glyphicon-plus"></span></a></li>
+            {{/if}}
 
-          {{> loginButtons}}
-        </ul>
+            <li><a href="#"><span class="badge" title="unsolved problems">{{incompleteCount}}</span></a></li>
+            {{> loginButtons}}
+          </ul>
+        {{/if}}
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
