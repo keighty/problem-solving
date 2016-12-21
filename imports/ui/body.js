@@ -7,7 +7,6 @@ import './body.html'
 
 Template.body.onCreated(function bodyOnCreated () {
   this.state = new ReactiveDict()
-  this.state.set('showAddProblemInput', false)
   Meteor.subscribe('tasks')
   Meteor.subscribe('problems')
 })
@@ -25,9 +24,6 @@ Template.body.helpers({
   },
   incompleteCount() {
     return Problems.find({ checked: { $ne: true }}).count()
-  },
-  showAddProblemInput() {
-    return Template.instance().state.get('showAddProblemInput')
   }
 })
 
@@ -39,20 +35,7 @@ Template.body.events({
     Meteor.call('tasks.insert', text)
     target.text.value = ''
   },
-  'submit .new-problem'(e, instance) {
-    e.preventDefault()
-    const target = e.target
-    const text = target.text.value
-    Meteor.call('problems.insert', text)
-    target.text.value = ''
-    instance.state.set('showAddProblemInput', false)
-  },
   'change .hide-completed input'(e, instance) {
     instance.state.set('hideCompleted', e.target.checked)
-  },
-  'click .add-problem'(e, instance) {
-    e.preventDefault()
-    const showInput = instance.state.get('showAddProblemInput')
-    instance.state.set('showAddProblemInput', !showInput)
   }
 })
