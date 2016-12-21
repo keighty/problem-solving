@@ -2,31 +2,34 @@
   {{> navigation}}
 
   <div class="container">
-    <header>
-      <h3>Ongoing problems</h3>
-      <select class="form-control"  id="problem-list">
-        {{#each problems}}
-          {{> problem}}
-        {{/each}}
-      </select>
-    </header>
-
-    <label class="hide-completed">
-      <input type="checkbox" />
-      Hide Completed Tasks
-    </label>
-
     {{#if currentUser}}
-    <form class="new-task">
-      <input type="text" name="text" placeholder="Type to add new tasks" />
-    </form>
-    {{/if}}
+      <header>
+        <h3>Ongoing problems</h3>
+        <select class="form-control"  id="problem-list">
+          {{#each problems}}
+            {{> problem}}
+          {{/each}}
+        </select>
+      </header>
 
-    <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-    </ul>
+      <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>
+
+
+      <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new tasks" />
+      </form>
+
+      <ul>
+        {{#each tasks}}
+          {{> task}}
+        {{/each}}
+      </ul>
+    {{else}}
+      {{> introPage}}
+    {{/if}}
 
   </div>
 </body>

@@ -9,7 +9,7 @@ Template.navigation.onCreated(function bodyOnCreated () {
 
 Template.navigation.helpers({
   showAddProblemInput() {
-    return Template.instance().state.get('showAddProblemInput')
+    return Template.instance().state.get('showAddProblemInput') && Meteor.user
   },
   incompleteCount() {
     return Problems.find({ checked: { $ne: true }}).count()
