@@ -1,10 +1,10 @@
 <body>
   {{> navigation}}
+
   <div class="container">
     <header>
-      <h3>Ongoing problems <span class="badge">{{incompleteCount}}</span></h3>
+      <h3>Ongoing problems</h3>
       <select class="form-control"  id="problem-list">
-        <option>Please Select</option>
         {{#each problems}}
           {{> problem}}
         {{/each}}

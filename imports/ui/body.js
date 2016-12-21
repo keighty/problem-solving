@@ -20,10 +20,7 @@ Template.body.helpers({
     return Tasks.find({}, {sort: { createdAt: -1 }})
   },
   problems() {
-    return Problems.find({})
-  },
-  incompleteCount() {
-    return Problems.find({ checked: { $ne: true }}).count()
+    return Problems.find({}, {sort: { createdAt: -1 }})
   }
 })
 

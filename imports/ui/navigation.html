@@ -15,7 +15,6 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
           <li><a href="#">Solved problems</a></li>
         </ul>
 
@@ -29,6 +28,7 @@
           {{else}}
           <li><a href="#" title="Add problem" class="add-problem"><span class="glyphicon glyphicon-plus"></span></a></li>
           {{/if}}
+          <li><a href="#"><span class="badge" title="unsolved problems">{{incompleteCount}}</span></a></li>
 
           {{> loginButtons}}
         </ul>

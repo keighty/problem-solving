@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating'
 import { ReactiveDict } from 'meteor/reactive-dict'
+import { Problems } from '../api/problems.js'
 
 Template.navigation.onCreated(function bodyOnCreated () {
   this.state = new ReactiveDict()
@@ -9,6 +10,9 @@ Template.navigation.onCreated(function bodyOnCreated () {
 Template.navigation.helpers({
   showAddProblemInput() {
     return Template.instance().state.get('showAddProblemInput')
+  },
+  incompleteCount() {
+    return Problems.find({ checked: { $ne: true }}).count()
   }
 })
 
